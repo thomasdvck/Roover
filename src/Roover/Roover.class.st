@@ -47,6 +47,11 @@ Roover >> interpretCommand: aString [
 	
 ]
 
+{ #category : 'as yet unclassified' }
+Roover >> turnLeft [
+	self direction turnLeft.
+]
+
 { #category : 'accessing - structure variables' }
 Roover >> x [
 	^ x

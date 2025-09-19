@@ -35,6 +35,16 @@ LMLM'.
 ]
 
 { #category : 'tests' }
+RooverTest >> testRotateLeft [
+|r|
+ r := Roover new.
+r turnLeft.
+
+self assert r direction equals: #O.
+
+]
+
+{ #category : 'tests' }
 RooverTest >> testSplitInput [
 
 	| splits |
