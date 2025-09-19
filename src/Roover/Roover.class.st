@@ -53,6 +53,40 @@ Roover >> interpretCommand: aString [
 ]
 
 { #category : 'accessing' }
+Roover >> interpretDirection: aString [
+
+	
+	aString do: [ :c |
+			c = $R
+				ifTrue: [ self turnRight ]
+				ifFalse: [
+						c = $L
+							ifTrue: [ self turnLeft ]
+							ifFalse: [ self move ] ] ]
+]
+
+{ #category : 'accessing' }
+Roover >> interpretFullCommand: aString [
+
+	| temp |
+	temp := aString splitOn: Character cr.
+
+	self interpretCommand: temp first.
+
+	self interpretInit: temp second.
+	self interpretDirection: temp third
+]
+
+{ #category : 'accessing' }
+Roover >> interpretInit: aString [ 
+	| cmd |
+	cmd:=aString splitOn: Character space.
+	x:=cmd first asInteger.
+	y:=cmd second asInteger.
+	direction:= Direction fromChar: cmd third 
+]
+
+{ #category : 'accessing' }
 Roover >> move [
 	| p |
 	p:= self direction move: x@y.
