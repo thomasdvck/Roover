@@ -4,7 +4,8 @@ Class {
 	#instVars : [
 		'x',
 		'y',
-		'direction'
+		'direction',
+		'gridSize'
 	],
 	#category : 'Roover',
 	#package : 'Roover'
@@ -15,6 +16,16 @@ Roover >> direction [
 	^ direction
 ]
 
+{ #category : 'accessing' }
+Roover >> gridSize [
+	^ gridSize
+]
+
+{ #category : 'accessing' }
+Roover >> gridSize: aPoint [ 
+	gridSize := aPoint
+]
+
 { #category : 'initialization' }
 Roover >> initialize [ 
 
@@ -22,6 +33,18 @@ Roover >> initialize [
 	direction := #N.
 	x := 0.
 	y := 0
+]
+
+{ #category : 'accessing' }
+Roover >> interpretCommand: aString [ 
+	| input grid |
+	input := aString splitOn: Character cr.
+	grid := input first splitOn: Character space.
+	self gridSize: (grid first asInteger + 1) @
+	(grid second asInteger + 1).
+	
+		
+	
 ]
 
 { #category : 'accessing - structure variables' }
