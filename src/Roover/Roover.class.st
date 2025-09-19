@@ -17,6 +17,11 @@ Roover >> direction [
 ]
 
 { #category : 'accessing' }
+Roover >> direction: aWest [ 
+	direction := aWest
+]
+
+{ #category : 'accessing' }
 Roover >> gridSize [
 	^ gridSize
 ]
@@ -27,10 +32,10 @@ Roover >> gridSize: aPoint [
 ]
 
 { #category : 'initialization' }
-Roover >> initialize [ 
+Roover >> initialize [
 
 	super initialize.
-	direction := #N.
+	direction := North new.
 	x := 0.
 	y := 0
 ]
@@ -47,9 +52,23 @@ Roover >> interpretCommand: aString [
 	
 ]
 
+{ #category : 'accessing' }
+Roover >> move [
+	| p |
+	p:= self direction move: x@y.
+	x:= p x.
+	y:= p y.
+	
+]
+
 { #category : 'as yet unclassified' }
 Roover >> turnLeft [
-	self direction turnLeft.
+	self direction: self direction rotateLeft
+]
+
+{ #category : 'accessing' }
+Roover >> turnRight [
+	self direction: self direction rotateRight .
 ]
 
 { #category : 'accessing - structure variables' }

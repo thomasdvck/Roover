@@ -35,13 +35,46 @@ LMLM'.
 ]
 
 { #category : 'tests' }
+RooverTest >> testInitialize [ 
+		
+	| r |
+	r := Roover new.
+	r interpretInit: '1 2 E'.
+	
+	self assert: r x equals: 1.
+	self assert: r x equals: 1.
+	self assert: r direction equals: East new.
+	
+]
+
+{ #category : 'tests' }
+RooverTest >> testMove [
+| r |
+r:= Roover new.
+r move.
+self assert: r x equals: 0
+
+
+]
+
+{ #category : 'tests' }
 RooverTest >> testRotateLeft [
 |r|
  r := Roover new.
 r turnLeft.
 
-self assert r direction equals: #O.
+self assert: r direction equals: West new.
 
+]
+
+{ #category : 'tests' }
+RooverTest >> testRotateRight [
+
+	| r |
+	r := Roover new.
+	r turnRight.
+
+	self assert: r direction equals: East new
 ]
 
 { #category : 'tests' }

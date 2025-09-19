@@ -5,6 +5,12 @@ Class {
 	#package : 'Roover'
 }
 
+{ #category : 'moveTest' }
+DirectionTest >> testEastMove [
+
+	self assert: (East new move: 0 @ 0) equals: 1 @ 0
+]
+
 { #category : 'tests' }
 DirectionTest >> testEastTurnLeft [
 
@@ -34,6 +40,12 @@ DirectionTest >> testNorthTurnRight [
 	self assert: North new rotateRight equals: East new
 ]
 
+{ #category : 'moveTest' }
+DirectionTest >> testSouthMove [
+
+	self assert: (South new move: 0 @ 0) equals: 0 @ -1
+]
+
 { #category : 'tests' }
 DirectionTest >> testSouthTurnLeft [
 
@@ -55,6 +67,12 @@ DirectionTest >> testTurnLeft [
 DirectionTest >> testTurnRight [
 
 	self assert: North new rotateRight equals: East new
+]
+
+{ #category : 'moveTest' }
+DirectionTest >> testWestMove [
+
+	self assert: (West new move: 0 @ 0) equals: -1 @ 0
 ]
 
 { #category : 'tests' }

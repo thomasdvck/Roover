@@ -5,6 +5,11 @@ Class {
 	#package : 'Roover'
 }
 
+{ #category : 'accessing' }
+East >> move: aPoint [ 
+	^ aPoint x+1 @ aPoint y
+]
+
 { #category : 'comparing' }
 East >> rotateLeft [
 	^North new.
