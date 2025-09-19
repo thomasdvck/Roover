@@ -6,7 +6,16 @@ Class {
 }
 
 { #category : 'tests' }
-RooverTest >> testRooverIsAtZeroZero [
+RooverTest >> testDefaultRooverDirectionIsNorth [
+
+	| r |
+	r := Roover new.
+	self assert: r direction equals: #N.
+	
+]
+
+{ #category : 'tests' }
+RooverTest >> testDefaultRooverPositionIsAtZeroZero [
 
 	| r |
 	r := Roover new.
