@@ -5,6 +5,11 @@ Class {
 	#package : 'Roover'
 }
 
+{ #category : 'comparing' }
+East >> rotateLeft [
+	^North new.
+]
+
 { #category : 'as yet unclassified' }
 East >> rotateRight [
 	^ South new.

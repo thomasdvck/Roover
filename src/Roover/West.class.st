@@ -6,6 +6,11 @@ Class {
 }
 
 { #category : 'comparing' }
+West >> rotateLeft [
+	^ South new.
+]
+
+{ #category : 'comparing' }
 West >> rotateRight [
 	^North new.
 ]
