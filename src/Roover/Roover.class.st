@@ -90,8 +90,13 @@ Roover >> interpretInit: aString [
 Roover >> move [
 	| p |
 	p:= self direction move: x@y.
-	x:= p x.
-	y:= p y.
+   gridSize ifNotNil: [
+        (p x between: 1 and: (gridSize x - 1)) ifTrue: [ x := p x ].
+        (p y between: 1 and: (gridSize y - 1)) ifTrue: [ y := p y ].
+    ] ifNil: [
+        x := p x.
+        y := p y.
+    ].
 	
 ]
 

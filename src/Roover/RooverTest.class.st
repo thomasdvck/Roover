@@ -23,6 +23,16 @@ RooverTest >> testDefaultRooverPositionIsAtOneOne [
 ]
 
 { #category : 'tests' }
+RooverTest >> testExitGrid [
+	| r |
+	r := Roover new.
+	r gridSize: 3@3.
+	r interpretInit: '1 1 W'.
+	r move.
+	self assert: r x equals: 1.
+]
+
+{ #category : 'tests' }
 RooverTest >> testFullInterpret [
 
 	| r |
