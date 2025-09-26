@@ -6,6 +6,16 @@ Class {
 }
 
 { #category : 'tests' }
+RooverTest >> testBack [
+| r |
+r:= Roover new.
+r back.
+self assert: r y equals: 0
+
+
+]
+
+{ #category : 'tests' }
 RooverTest >> testDefaultRooverDirectionIsNorth [
 
 	| r |
@@ -43,6 +53,20 @@ RMRM'.
 
 	self assert: r x equals: 2.
 	self assert: r y equals: 1.
+	self assert: r direction equals: South new
+]
+
+{ #category : 'tests' }
+RooverTest >> testFullInterpretBack [
+
+	| r |
+	r := Roover new.
+	r interpretFullCommand: '5 5
+1 2 N 
+RMRMB'.
+
+	self assert: r x equals: 2.
+	self assert: r y equals: 2.
 	self assert: r direction equals: South new
 ]
 
@@ -87,7 +111,7 @@ RooverTest >> testMove [
 | r |
 r:= Roover new.
 r move.
-self assert: r x equals: 1
+self assert: r y equals: 2
 
 
 ]

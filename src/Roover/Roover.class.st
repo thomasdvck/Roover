@@ -12,6 +12,20 @@ Class {
 }
 
 { #category : 'accessing' }
+Roover >> back [
+
+	| p |
+	p := self direction back: x @ y.
+	gridSize
+		ifNotNil: [
+				(p x between: 1 and: gridSize) ifTrue: [ x := p x ].
+				(p y between: 1 and: gridSize) ifTrue: [ y := p y ] ]
+		ifNil: [
+				x := p x.
+				y := p y ]
+]
+
+{ #category : 'accessing' }
 Roover >> direction [
 	^ direction
 ]
@@ -55,14 +69,16 @@ Roover >> interpretCommand: aString [
 { #category : 'accessing' }
 Roover >> interpretDirection: aString [
 
-	
 	aString do: [ :c |
 			c = $R
 				ifTrue: [ self turnRight ]
 				ifFalse: [
 						c = $L
 							ifTrue: [ self turnLeft ]
-							ifFalse: [ self move ] ] ]
+							ifFalse: [ 
+								c = $B
+									ifTrue: [ self back ]
+									ifFalse: [ self move ] ] ] ]
 ]
 
 { #category : 'accessing' }

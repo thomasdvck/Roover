@@ -6,6 +6,12 @@ Class {
 }
 
 { #category : 'accessing' }
+West >> back: aPoint [
+
+	^ aPoint x + 1 @ aPoint y
+]
+
+{ #category : 'accessing' }
 West >> move: aPoint [ 
 	^aPoint x-1 @ aPoint y
 ]
